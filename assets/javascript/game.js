@@ -15,8 +15,6 @@ var computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.len
         //function to reset game
 function resetGame(){
     guessesLeft= 10;
-    losses= 0;
-    wins= 0;
     wrongGuesses= [];
     computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
         console.log(computerGuess);
@@ -36,14 +34,14 @@ document.onkeyup = function(event){
 if (userGuess === computerGuess){
     wins++;
     alert("Wow you won!");
-    resetGame();
+   
 } else {
     wrongGuesses.push(userGuess);
-    losses++;
     guessesLeft--;
     console.log(wrongGuesses);
 } if (guessesLeft=== 0){
     alert('Sorry maybe next time');
+    losses++;
     resetGame();
 }
 console.log("WinCount: " + wins + " | LossCount: " + losses + " | NumGuesses: " + guessesLeft);
