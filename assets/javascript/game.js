@@ -9,25 +9,27 @@ var guessesLeft= 10;
 var wrongGuesses= [];
 
 
+var computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
+        console.log(computerGuess);
 
-//function to reset game
+        //function to reset game
 function resetGame(){
     guessesLeft= 10;
     losses= 0;
     wins= 0;
     wrongGuesses= [];
+    computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
+        console.log(computerGuess);
 }
 
 //function for key up event
 document.onkeyup = function(event){
+    
 //variable for the button pressed by user    
     var userGuess = event.key.toLowerCase();
         
-        console.log(userGuess);
-
-//variable for compter random selection    
-    var computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
-        console.log(computerGuess);
+        console.log(userGuess);    
+    
 //logic
 //for (var i = 0; i < numBlanks; i++)
 
@@ -40,6 +42,9 @@ if (userGuess === computerGuess){
     losses++;
     guessesLeft--;
     console.log(wrongGuesses);
+} if (guessesLeft=== 0){
+    alert('Sorry maybe next time');
+    resetGame();
 }
 console.log("WinCount: " + wins + " | LossCount: " + losses + " | NumGuesses: " + guessesLeft);
 //display guesses, wins and losses.
@@ -48,10 +53,7 @@ document.getElementById("loss-text").innerHTML= "Losses: " + losses;
 document.getElementById("guessesLeft-text").innerHTML= "Guesses " + guessesLeft;
 document.getElementById("guessesSoFar-text").innerHTML= "Letters You Guessed: " + wrongGuesses;
 
-if (guessesLeft=== 0){
-    alert('Sorry maybe next time');
-    resetGame();
-}
+
 };
 
 //need a rest when guesses left reaches 0 giant loop?
