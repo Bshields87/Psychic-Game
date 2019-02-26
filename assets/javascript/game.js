@@ -3,19 +3,22 @@
 //variable for computer choices array
 var computerChoices = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //variables for score
-let wins= 0;
-let losses= 0;
-let guessesLeft= 10;
+var wins= 0;
+var losses= 0;
+var guessesLeft= 10;
+//var wrongGuesses= [];
 
-//variables for location inhtml that needs updating
-let winsScoreText= document.getElementById("winsScore-text");
-let lossScoreText= document.getElementById("lossScore-text");
-let guessesLeftText= document.getElementById("guessesLeft-text");
-let guessesSoFarText= document.getElementById("guessesSoFar-text");
 
+
+/*function to reset game
+function resetGame(){
+    guessesLeft= 'Guesses Left: 10';
+    computerChoice= '';
+    wins= 'Wins: 0'
+}
+*/
 //function for key up event
 document.onkeyup = function(event){
-
 //variable for the button pressed by user    
     var userGuess = event.key.toLowerCase();
         
@@ -25,18 +28,25 @@ document.onkeyup = function(event){
     var computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
         console.log(computerGuess);
 //logic
+//for (var i = 0; i < numBlanks; i++)
+
 if (userGuess === computerGuess){
-wins++;
+    wins++;
+    alert("Wow you won!");
 } else {
     losses++;
+    alert("Sorry Kiddo!");
     guessesLeft--;
 }
+console.log("WinCount: " + wins + " | LossCount: " + losses + " | NumGuesses: " + guessesLeft);
 //display guesses, wins and losses.
-winsScoreText.textContent= "Wins: " + wins;
-lossScoreText.textContent= "Losses: " + losses;
-guessesLeftText.textContent= "Guesses Left: " + guessesLeft;
-guessesSoFarText.textContent= "You Guessed: " + userGuess;
-}
-;
+document.getElementById("wins-text").innerHTML= "Wins: " + wins;
+document.getElementById("loss-text").innerHTML= "Losses: " + losses;
+document.getElementById("guessesLeft-text").innerHTML= "Guesses " + guessesLeft;
+document.getElementById("guessesSoFar-text").innerHTML= "Letters You Guessed: " + userGuess;
+
+};
+
+//need a rest when guesses left reaches 0 giant loop?
 
 
