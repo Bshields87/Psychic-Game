@@ -8,17 +8,18 @@ var losses= 0;
 var guessesLeft= 10;
 var wrongGuesses= [];
 
-
-var computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
+var locationOfLetter = Math.floor(Math.random()* computerChoices.length)
+var computerGuess= computerChoices[locationOfLetter];
         console.log(computerGuess);
 
         //function to reset game
-function resetGame(){
+    function resetGame(){
     guessesLeft= 10;
     wrongGuesses= [];
-    computerGuess= computerChoices[Math.floor(Math.random()* computerChoices.length)];
+    locationOfLetter = Math.floor(Math.random()* computerChoices.length)
+    computerGuess= computerChoices[locationOfLetter];
         console.log(computerGuess);
-}
+    }
 
 //function for key up event
 document.onkeyup = function(event){
@@ -34,6 +35,7 @@ document.onkeyup = function(event){
 if (userGuess === computerGuess){
     wins++;
     alert("Wow you won!");
+    resetGame();
    
 } else {
     wrongGuesses.push(userGuess);
@@ -43,6 +45,7 @@ if (userGuess === computerGuess){
     alert('Sorry maybe next time');
     losses++;
     resetGame();
+
 }
 console.log("WinCount: " + wins + " | LossCount: " + losses + " | NumGuesses: " + guessesLeft);
 //display guesses, wins and losses.
@@ -53,7 +56,7 @@ document.getElementById("guessesSoFar-text").innerHTML= "Letters You Guessed: " 
 
 
 };
-
+//function displayPic(){}
 //need a rest when guesses left reaches 0 giant loop?
 
 
