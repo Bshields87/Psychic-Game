@@ -2,6 +2,8 @@
 
 //variable for computer choices array
 var computerChoices = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+//variable for images
+var imagesForGuess =['src=assets/images/letter a.jpg','']
 //variables for score
 var wins= 0;
 var losses= 0;
@@ -20,13 +22,19 @@ var computerGuess= computerChoices[locationOfLetter];
     computerGuess= computerChoices[locationOfLetter];
         console.log(computerGuess);
     }
+/*function to display pic
+function displayPic(){
+    var 
+    console.log(display);
 
+}*/
 //function for key up event
 document.onkeyup = function(event){
     
 //variable for the button pressed by user    
     var userGuess = event.key.toLowerCase();
-        
+    var  display= imagesForGuess[locationOfLetter]; 
+        console.log(display);  
         console.log(userGuess);    
     
 //logic
@@ -56,7 +64,8 @@ document.getElementById("guessesSoFar-text").innerHTML= "Letters You Guessed: " 
 
 
 };
-//function displayPic(){}
-//need a rest when guesses left reaches 0 giant loop?
+
+
+
 
 
