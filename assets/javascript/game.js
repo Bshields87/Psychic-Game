@@ -3,11 +3,11 @@
 //variable for computer choices array
 var computerChoices = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //variable for images
-var imagesForGuess =['src=assets/images/letter a.jpg','src=assets/images/letter b.jpg','src=assets/images/letter c.jpg','assets/images/letter d.jpg','assets/images/letter e.jpg',
-'assets/images/letter f.jpg','assets/images/letter g.jpg','assets/images/letter h.jpg','assets/images/letter i.jpg','assets/images/letter j.jpg','assets/images/letter k.jpg',
-'assets/images/letter L.jpg','assets/images/letter m.jpg','assets/images/letter n.jpg','assets/images/letter o.jpg','assets/images/letter p.jpg','assets/images/letter q.jpg',
-'assets/images/letter r.jpg','assets/images/letter s.jpg','assets/images/letter t.jpg','assets/images/letter u.jpg','assets/images/letter v.jpg','assets/images/letter w.jpg',
-'assets/images/letter x.jpg','assets/images/letter y.jpg','assets/images/letter z.jpg'];
+var imagesForGuess =["'assets/images/letter a.jpg'","'assets/images/letter b.jpg'","'assets/images/letter c.jpg'","'assets/images/letter d.jpg'","'assets/images/letter e.jpg'",
+"'assets/images/letter f.jpg'","'assets/images/letter g.jpg'","'assets/images/letter h.jpg'","'assets/images/letter i.jpg'","'assets/images/letter j.jpg'","'assets/images/letter k.jpg'",
+"'assets/images/letter L.jpg'","'assets/images/letter m.jpg'","'assets/images/letter n.jpg'","'assets/images/letter o.jpg'","'assets/images/letter p.jpg'","'assets/images/letter q.jpg'",
+"'assets/images/letter r.jpg'","'assets/images/letter s.jpg'","'assets/images/letter t.jpg'","'assets/images/letter u.jpg'","'assets/images/letter v.jpg'","'assets/images/letter w.jpg'",
+"'assets/images/letter x.jpg'","'assets/images/letter y.jpg'","'assets/images/letter z.jpg'"];
 //variables for score
 var wins= 0;
 var losses= 0;
@@ -18,7 +18,7 @@ var locationOfLetter = Math.floor(Math.random()* computerChoices.length)
 var computerGuess= computerChoices[locationOfLetter];
         console.log(computerGuess);
 var  display= imagesForGuess[locationOfLetter]; 
-        console.log(display);  
+       
 
         //function to reset game
     function resetGame(){
@@ -31,8 +31,8 @@ var  display= imagesForGuess[locationOfLetter];
     }
 //function to display pic
 function displayPic(){
-    display= imagesForGuess[locationOfLetter];
-    console.log(displayPic); 
+    $("#images").html("<img src=" + display + ">");
+    console.log({displayPic, text:"<img src=" + display + ">"}); 
 }
     /*something to try
 var par = document.getElementById('imageDiv');
@@ -55,6 +55,7 @@ document.onkeyup = function(event){
 if (userGuess === computerGuess){
     wins++;
     alert("Wow you won!");
+    displayPic();
     resetGame();
    
 } else {
@@ -64,6 +65,7 @@ if (userGuess === computerGuess){
 } if (guessesLeft=== 0){
     alert('Sorry maybe next time');
     losses++;
+    displayPic();
     resetGame();
 
 }
@@ -75,3 +77,4 @@ document.getElementById("guessesLeft-text").innerHTML= "Guesses " + guessesLeft;
 document.getElementById("guessesSoFar-text").innerHTML= "Letters You Guessed: " + wrongGuesses;
 //document.getElementById("images").innerHTML = display;
     };
+    
