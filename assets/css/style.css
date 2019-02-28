@@ -16,6 +16,10 @@ body{
    position: relative;
 }
 
-#congrats, #sorry{
+#message{
     font-size: 30px;
+}
+#images{
+    position: fixed;
+    left: 285px;
 }
