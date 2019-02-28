@@ -33,14 +33,22 @@ function resetGame() {
 function displayPic() {
     $("#images").html("<img src=" + display + ">");
 }
-//for congrats text
-function congrats(congrats) {  
-    $("#congrats").html("Congratulations...Your soul is safe. FOR NOW!");
-}
-//for sorry text
-function sorry() {
+
+//for hell text
+function hell() {
     $("#sorry").html("Well, well, well... Your soul is MINE now!!");
+    $('#gif').css("background-image", "url(https://media0.giphy.com/media/Lopx9eUi34rbq/200w.webp?cid=3640f6095c77769c636d575945d7af58)");
+    body = document.getElementById("body");
+    body.style.color = 'orange';
 }
+function heaven(){
+    $("#congrats").html("Congratulations...Your soul is safe. FOR NOW!");
+   $('#gif').css("background-image", "url(https://media0.giphy.com/media/xUA7bdb438bTcgY0h2/200w.webp?cid=3640f6095c7770f24476514e6391a1c8)");  
+   body = document.getElementById("body");
+   body.style.color = 'blue';
+   
+}
+
 
 //function for key up event
 document.onkeyup = function (event) {
@@ -55,8 +63,7 @@ document.onkeyup = function (event) {
 
     if (userGuess === computerGuess) {
         wins++;
-        congrats();
-        displayPic();
+        heaven();
         resetGame();
     } else {
         wrongGuesses.push(userGuess);
@@ -66,8 +73,8 @@ document.onkeyup = function (event) {
 
 
     if (guessesLeft === 0) {
-        sorry();
         losses++;
+        hell();
         displayPic();
         resetGame();
     }
