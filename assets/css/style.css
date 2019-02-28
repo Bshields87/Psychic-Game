@@ -1,0 +1,19 @@
+body{
+    background: black;
+    color: orange;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.container{
+    box-sizing: content-box;
+    float: center;
+   margin: 100px;
+   height: 960px;
+   text-align: center;
+   background-image: url('https://media3.giphy.com/media/Lopx9eUi34rbq/200w.webp?cid=3640f6095c771653704a624e517041a7');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+
+}
